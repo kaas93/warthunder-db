@@ -1,25 +1,8 @@
 import Link from "next/link";
 import styles from "./country.module.scss";
+import { Type } from "./[type]/type";
 
-const types = [
-    "lighttank",
-    "mediumtank",
-    "heavytank",
-    "tankdestroyer",
-    "spaa",
-    "fighter",
-    "stormovik",
-    "bomber",
-    "divebomber",
-    "torpedoboat",
-    "submarinechaser",
-    "minelayer",
-    "transport",
-    "navalferrybarge",
-    "destroyer",
-    "torpedogunboat",
-    "ship",
-];
+const types: Type[] = ["ground", "air", "naval"];
 
 interface CountryOptions {
     params: {

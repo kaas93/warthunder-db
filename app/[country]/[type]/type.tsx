@@ -1,4 +1,4 @@
-import Tree from "./tree";
+import TechTree from "./tech-tree";
 import styles from "./type.module.scss";
 import { Vehicle } from "./vehicle.model";
 
@@ -24,7 +24,7 @@ export const Type = async ({ params: { country, type } }: TypeOptions) => {
             <h1>
                 [{country}] {type}
             </h1>
-            <Tree vehicles={vehicles} />
+            <TechTree vehicles={vehicles} />
         </div>
     );
 };

@@ -1,13 +1,13 @@
 import { Edge, Node, Position } from "reactflow";
 import dagre from 'dagre';
 
-const nodeWidth = 172;
-const nodeHeight = 36;
+const nodeWidth = 300;
+const nodeHeight = 84;
 
 export const toDagreLayout = (nodes: Node[], edges: Edge[]) => {
     const dagreGraph = new dagre.graphlib.Graph();
     dagreGraph.setDefaultEdgeLabel(() => ({}));
-    dagreGraph.setGraph({ rankdir: 'TB' });
+    dagreGraph.setGraph({ rankdir: 'LR' });
 
     nodes.forEach((node) => {
         dagreGraph.setNode(node.id, { width: nodeWidth, height: nodeHeight });
@@ -21,8 +21,8 @@ export const toDagreLayout = (nodes: Node[], edges: Edge[]) => {
 
     nodes.forEach((node) => {
         const nodeWithPosition = dagreGraph.node(node.id);
-        node.targetPosition = Position.Top;
-        node.sourcePosition = Position.Bottom;
+        node.targetPosition = Position.Left;
+        node.sourcePosition = Position.Right;
 
         node.position = {
             x: nodeWithPosition.x - nodeWidth / 2,

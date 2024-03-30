@@ -6,7 +6,7 @@ const countries = [
     "china",
     "france",
     "germany",
-    "isreal",
+    "israel",
     "italy",
     "japan",
     "sweden",
@@ -16,12 +16,16 @@ const countries = [
 
 const Home = () => {
     return (
-        <div className={styles.countries}>
-            {countries.map((country) => (
-                <Link className={styles.country} key={country} href={`/${country}`}>
-                    {country}
-                </Link>
-            ))}
+        <div className={styles.home}>
+            <div className={styles.countries}>
+                {countries.map((country) => (
+                    <div key={country}>
+                        <Link className={styles.country} href={`/${country}`}>
+                            {country}
+                        </Link>
+                    </div>
+                ))}
+            </div>
         </div>
     );
 };

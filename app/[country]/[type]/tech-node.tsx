@@ -19,7 +19,7 @@ const TechNode: FC<NodeProps<Vehicle & { type: TechNodeType }>> = ({ data, type 
                 alt={`Tech tree image for ${data.identifier}`}
                 width="64"
                 height="64"
-                objectFit="contain"
+                quality={100}
             />
             {(techNodeType === "node" || techNodeType === "root") && (
                 <Handle type="source" position={Position.Right} />

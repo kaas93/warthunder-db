@@ -6,7 +6,7 @@ const nextConfig = {
                 protocol: "https",
                 hostname: "wtvehiclesapi.sgambe.serv00.net",
                 port: "",
-                pathname: "/assets/techtrees/**",
+                pathname: "/assets/**",
             },
         ],
     },

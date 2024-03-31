@@ -9,8 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@radix-ui/react-hover-card": "^1.0.7",
     "dagre": "^0.8.5",
+    "install": "^0.13.0",
     "next": "14.1.4",
+    "npm": "^10.5.0",
     "react": "^18",
     "react-dom": "^18",
     "reactflow": "^11.10.4",

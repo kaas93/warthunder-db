@@ -1,43 +1,26 @@
-import React, { FC, memo } from "react";
-import { Handle, NodeProps, Position } from "reactflow";
+import { FC, memo } from "react";
+import { NodeProps } from "reactflow";
+import { TechNodeType, TechTreeCard } from "./tech-tree-card";
 import { Vehicle } from "./vehicle.model";
+import * as HoverCard from "@radix-ui/react-hover-card";
+import { DetailCard } from "./detail-card";
 import styles from "./tech-node.module.scss";
-import Image from "next/image";
 
-export type TechNodeType = "root" | "node" | "leaf" | "premium";
-
-const TechNode: FC<NodeProps<Vehicle & { type: TechNodeType }>> = ({ data, type }) => {
-    const { type: techNodeType } = data;
+const TechNode: FC<NodeProps<Vehicle & { type: TechNodeType }>> = ({ data }) => {
     return (
-        <div className={styles["tech-node"]}>
-            {(techNodeType === "node" || techNodeType === "leaf") && (
-                <Handle type="target" position={Position.Left} />
-            )}
-            <span className={styles.label}>{formatIdentifier(data.identifier)}</span>
-            <Image
-                src={`https://${data.images.techtree}`}
-                alt={`Tech tree image for ${data.identifier}`}
-                width="64"
-                height="64"
-                quality={100}
-            />
-            {(techNodeType === "node" || techNodeType === "root") && (
-                <Handle type="source" position={Position.Right} />
-            )}
-            {data.is_premium && (
-                <span
-                    className={styles.premium}
-                    title={`Premium: ${data.ge_cost ? `${data.ge_cost} GE` : "from gift or bundle"}`}
-                >
-                    🪙
-                </span>
-            )}
-        </div>
+        <HoverCard.Root>
+            <HoverCard.Trigger>
+                <TechTreeCard vehicle={data} />
+            </HoverCard.Trigger>
+            <HoverCard.Portal>
+                <HoverCard.Content side="right" sideOffset={20}>
+                    <DetailCard vehicle={data} />
+
+                    <HoverCard.Arrow className={styles["detail-card-arrow"]} />
+                </HoverCard.Content>
+            </HoverCard.Portal>
+        </HoverCard.Root>
     );
 };
 
 export default memo(TechNode);
-
-const formatIdentifier = (identifier: string) => {
-    return identifier.replaceAll("_", " ");
-};

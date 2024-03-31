@@ -1,19 +1,13 @@
 "use client";
 
 import { FC, useEffect } from "react";
-import { Vehicle } from "./vehicle.model";
-import ReactFlow, {
-    Controls,
-    Edge,
-    MiniMap,
-    NodeTypes,
-    useEdgesState,
-    useNodesState,
-} from "reactflow";
-import styles from "./tech-tree.module.scss";
+import ReactFlow, { Controls, Edge, NodeTypes, useEdgesState, useNodesState } from "reactflow";
 import "reactflow/dist/style.css";
 import { toDagreLayout } from "./dagre-layout";
-import TechNode, { TechNodeType } from "./tech-node";
+import TechNode from "./tech-node";
+import { TechNodeType } from "./tech-tree-card";
+import styles from "./tech-tree.module.scss";
+import { Vehicle } from "./vehicle.model";
 
 const nodeTypes: NodeTypes = {
     techNode: TechNode,

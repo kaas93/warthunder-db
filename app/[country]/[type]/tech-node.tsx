@@ -15,7 +15,6 @@ const TechNode: FC<NodeProps<Vehicle & { type: TechNodeType }>> = ({ data }) => 
             <HoverCard.Portal>
                 <HoverCard.Content side="right" sideOffset={20}>
                     <DetailCard vehicle={data} />
-
                     <HoverCard.Arrow className={styles["detail-card-arrow"]} />
                 </HoverCard.Content>
             </HoverCard.Portal>

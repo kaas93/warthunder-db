@@ -17,6 +17,7 @@ export const TechTreeCard: FC<{ vehicle: Vehicle & { type: TechNodeType } }> = (
                 <span className={styles.label} title={formatIdentifier(vehicle.identifier)}>
                     {formatIdentifier(vehicle.identifier)}
                 </span>
+                <span className={styles["battle-rating"]}> {vehicle.arcade_br.toFixed(1)}</span>
                 {vehicle.req_exp !== 0 && !vehicle.is_premium && (
                     <span className={styles.research}>{vehicle.req_exp}</span>
                 )}

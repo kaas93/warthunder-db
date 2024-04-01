@@ -1,7 +1,7 @@
 import { Edge, Node, Position } from "reactflow";
 import dagre from 'dagre';
 
-const nodeWidth = 300;
+const nodeWidth = 340;
 const nodeHeight = 84;
 
 export const toDagreLayout = (nodes: Node[], edges: Edge[]) => {

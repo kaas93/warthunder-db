@@ -1,6 +1,6 @@
 .tech-node {
     position: relative;
-    width: 300px;
+    width: 340px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -12,23 +12,9 @@
     border-radius: 0.25em;
     border: 2px solid #2f3f47;
 
-    .premium {
-        position: absolute;
-        top: -0.5em;
-        left: -0.5em;
-        width: 1em;
-        line-height: 1em;
-        height: 1em;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        font-size: 2rem;
-        border-radius: 50%;
-
-        &:hover {
-            filter: drop-shadow(0 0 0.1em rgba(white, 0.5));
-        }
+    &.premium {
+        background: #47432f;
+        border-color: #47432f;
     }
 
     img {
@@ -44,27 +30,32 @@
 
 .details {
     display: grid;
-    grid-template: 1fr 1fr / 1fr 1fr;
+    grid-template: 1fr 1fr / minmax(0, 1fr) 1fr 1fr;
     grid-gap: 1em;
     width: 100%;
 
+    font-size: 14px;
+
     .label {
-        grid-column: span 2;
+        grid-column: span 3;
 
         text-transform: capitalize;
+        font-size: 16px;
         font-weight: bold;
         text-overflow: ellipsis;
         overflow: hidden;
         white-space: nowrap;
     }
 
+    .battle-rating,
     .research,
     .cost,
     .premium-cost {
         display: flex;
         flex-direction: row;
         align-items: center;
-        column-gap: 0.25em;
+        column-gap: 0.35em;
+        line-height: 1em;
 
         &::after {
             content: "";
@@ -78,6 +69,12 @@
         }
     }
 
+    .battle-rating::before {
+        content: "BR:";
+
+        font-weight: bold;
+        margin-right: 0.25em;
+    }
     .research::after {
         background-image: url("/research-points.png");
     }
